@@ -1,9 +1,5 @@
 package models;
 
-import java.sql.*;
-
-import database.backend;
-
 public class User {
 
     private int id;
