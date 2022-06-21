@@ -1,6 +1,5 @@
 package database;
 
-import static database.backend.user;
 import java.sql.*;
 import models.User;
 
@@ -50,17 +49,17 @@ public class backend {
         try {
             Connection connection = getConn();
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT FROM users WHERE email=? AND password=?");
+                    "SELECT * FROM users WHERE email = ? AND password = ?");
             statement.setString(1, email);
             statement.setString(2, password);
+            ResultSet rs = statement.executeQuery();
             
-            ResultSet rs  = statement.executeQuery();
-            
-            if (rs == null){
-                System.out.println("Invalid login");
-            }else {
-                System.out.println("Success");
+            if (rs.next()) {//Found user in database
+                System.out.println("Login Correct");
+            } else {//No user found
+                System.out.println("Login Incorrect");
             }
+            
 
         } catch (Exception exc) {
         }
