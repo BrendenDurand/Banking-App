@@ -12,4 +12,8 @@ public class UserController {
     public static void loginUser(String name, String password) {
         backend.LoginUser(name, password);
     }
+    
+    public static void changePassword(String email, String password){
+         backend.changePassword(email, password);
+    }
 }

@@ -49,17 +49,28 @@ public class backend {
         try {
             Connection connection = getConn();
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM users WHERE email = ? AND password = ?");
+                    "SELECT * FROM USERS WHERE email = ? AND password = ?");
             statement.setString(1, email);
             statement.setString(2, password);
             ResultSet rs = statement.executeQuery();
-            
+
             if (rs.next()) {//Found user in database
                 System.out.println("Login Correct");
             } else {//No user found
                 System.out.println("Login Incorrect");
             }
-            
+        } catch (Exception exc) {
+        }
+    }
+
+    public static void changePassword(String email, String password) {
+        try {
+            Connection connection = getConn();
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE USERS SET password = ? WHERE email = ?");
+            statement.setString(1, password);
+            statement.setString(2, email);
+            statement.executeUpdate();
 
         } catch (Exception exc) {
         }
