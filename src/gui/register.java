@@ -68,6 +68,7 @@ public class register extends javax.swing.JFrame {
         nameInput.setFont(new java.awt.Font("Segoe UI Emoji", 0, 11)); // NOI18N
         nameInput.setForeground(new java.awt.Color(240, 240, 240));
         nameInput.setText("First Name");
+        nameInput.setBorder(null);
         nameInput.setName("nameInput"); // NOI18N
         nameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +80,7 @@ public class register extends javax.swing.JFrame {
         surnameInput.setFont(new java.awt.Font("Segoe UI Emoji", 0, 11)); // NOI18N
         surnameInput.setForeground(new java.awt.Color(240, 240, 240));
         surnameInput.setText("Last Name");
+        surnameInput.setBorder(null);
         surnameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 surnameInputActionPerformed(evt);
@@ -89,6 +91,7 @@ public class register extends javax.swing.JFrame {
         emailInput.setFont(new java.awt.Font("Segoe UI Emoji", 0, 11)); // NOI18N
         emailInput.setForeground(new java.awt.Color(240, 240, 240));
         emailInput.setText("Email Address");
+        emailInput.setBorder(null);
         emailInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailInputActionPerformed(evt);
@@ -99,6 +102,7 @@ public class register extends javax.swing.JFrame {
         idInput.setFont(new java.awt.Font("Segoe UI Emoji", 0, 11)); // NOI18N
         idInput.setForeground(new java.awt.Color(240, 240, 240));
         idInput.setText("ID Number");
+        idInput.setBorder(null);
         idInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idInputActionPerformed(evt);
@@ -109,6 +113,7 @@ public class register extends javax.swing.JFrame {
         passwordInput.setFont(new java.awt.Font("Segoe UI Emoji", 0, 11)); // NOI18N
         passwordInput.setForeground(new java.awt.Color(240, 240, 240));
         passwordInput.setText("Password");
+        passwordInput.setBorder(null);
         passwordInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordInputActionPerformed(evt);
@@ -119,6 +124,7 @@ public class register extends javax.swing.JFrame {
         ageInput.setFont(new java.awt.Font("Segoe UI Emoji", 0, 11)); // NOI18N
         ageInput.setForeground(new java.awt.Color(240, 240, 240));
         ageInput.setText("Age");
+        ageInput.setBorder(null);
         ageInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageInputActionPerformed(evt);

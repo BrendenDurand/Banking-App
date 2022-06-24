@@ -45,22 +45,30 @@ public class backend {
         }
     }
 
-    public static void LoginUser(String email, String password) {
+    public static User GetUserByEmail(String email) throws SQLException {
         try {
             Connection connection = getConn();
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM USERS WHERE email = ? AND password = ?");
+                    "SELECT * FROM USERS WHERE email = ?");
             statement.setString(1, email);
-            statement.setString(2, password);
             ResultSet rs = statement.executeQuery();
-
+            
             if (rs.next()) {//Found user in database
-                System.out.println("Login Correct");
+                User user = new User();
+                user.setName(rs.getString("name"));
+                user.setSurname(rs.getString("surname"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setIDNumber(rs.getString("IDNumber"));
+                user.setAge(rs.getInt("age"));
+                return user;
             } else {//No user found
-                System.out.println("Login Incorrect");
+                return null;
             }
         } catch (Exception exc) {
+            throw exc;
         }
+
     }
 
     public static void changePassword(String email, String password) {
@@ -71,8 +79,11 @@ public class backend {
             statement.setString(1, password);
             statement.setString(2, email);
             statement.executeUpdate();
-
         } catch (Exception exc) {
         }
+    }
+
+    public static void getFirstName() {
+
     }
 }

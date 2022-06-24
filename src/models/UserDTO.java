@@ -1,27 +1,20 @@
 package models;
 
-public class User {
-
-    private int id;
+public class UserDTO {
     private String name;
     private String surname;
     private String email;
     private String IDNumber;
-    private String password;
     private int age;
 
-    public User() {
-        
+    public UserDTO(User user) {
+        this.name = user.getName();
+        this.surname = user.getSurname();
+        this.email = user.getEmail();
+        this.IDNumber = user.getIDNumber();
+        this.age = user.getAge();
     }
     
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -54,14 +47,6 @@ public class User {
         this.IDNumber = IDNumber;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public int getAge() {
         return age;
     }
@@ -69,5 +54,4 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
-
 }

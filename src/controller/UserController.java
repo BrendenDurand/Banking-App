@@ -1,19 +1,47 @@
 package controller;
 
 import database.backend;
+
 import models.User;
+import models.UserDTO;
 
 public class UserController {
 
     public static void createUser(User user) {
         backend.RegisterNewUser(user);
     }
-    
-    public static void loginUser(String name, String password) {
-        backend.LoginUser(name, password);
+
+    public static UserDTO LoginUser(String email, String password) {
+        //Get user from db
+        try {
+            User userDetails = backend.GetUserByEmail(email);
+            if (userDetails != null) {
+                //Check Password
+                if (validatePassword(password, userDetails.getPassword()) != false) {
+                    //If Valid Login
+                    UserDTO userDTO = new UserDTO(userDetails);
+
+                    return userDTO;
+                } else {
+                    //If Password Incorrect
+                    return null;
+                }
+            } else {
+                //If email not found
+                return null;
+            }
+        } catch (Exception exc) {
+            return null;
+        }
+
     }
-    
-    public static void changePassword(String email, String password){
-         backend.changePassword(email, password);
+
+    public static void changePassword(String email, String password) {
+        backend.changePassword(email, password);
+    }
+
+    //Check Password
+    public static boolean validatePassword(String password, String passwordHashed) {
+        return (password.equals(passwordHashed));
     }
 }
