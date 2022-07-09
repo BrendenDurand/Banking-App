@@ -1,11 +1,17 @@
 package models;
 
 public class UserDTO {
+
     private String name;
     private String surname;
     private String email;
     private String IDNumber;
     private int age;
+    private static String otp;
+
+    public UserDTO() {
+
+    }
 
     public UserDTO(User user) {
         this.name = user.getName();
@@ -14,13 +20,21 @@ public class UserDTO {
         this.IDNumber = user.getIDNumber();
         this.age = user.getAge();
     }
-    
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static String getOTP() {
+        return otp;
+    }
+
+    public void setOTP(String code) {
+        otp = code;
     }
 
     public String getSurname() {
