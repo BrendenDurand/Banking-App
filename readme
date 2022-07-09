@@ -1,0 +1,2 @@
+This banking application is a personal project of mine where i am pushing myself to code in a professional way, with security and performance in mind.
+So far, I have learnt a lot about modularisation of code, and using different classes to interact with each other in a more structured and organized way. I have learnt password hashing, to allow privacy for the user. Using controller classes to communicate between the frontend and the backend layers. More logical ways of writing code to make it neater and easier to understand, and more.
