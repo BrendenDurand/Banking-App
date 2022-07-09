@@ -1,6 +1,5 @@
 package services;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.mail.*;
@@ -19,25 +18,21 @@ public class SendEmail {
     static String emailSubject;
     static String emailBody;
 
-    public SendEmail(String receiverEmail, String subject, String body) {
-        //receiver email
-        this.receiverEmail = receiverEmail;
-        //subject
+    public SendEmail(String email, String subject, String body) {
+        receiverEmail = email;
         emailSubject = subject;
-        //body
         emailBody = body;
         FileReader reader;
-        Properties properties = null;
+        Properties properties;
         try {
             reader = new FileReader("properties.properties");
             properties = new Properties();
             properties.load(reader);
+            senderEmail = properties.getProperty("emailAddress");
+            senderPassword = properties.getProperty("emailPassword");
         } catch (IOException ex) {
             Logger.getLogger(SendEmail.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        senderEmail = properties.getProperty("emailAddress");
-        senderPassword = properties.getProperty("emailPassword");
 
         Properties props = new Properties();
         props.put("mail.smtp.user", senderEmail);

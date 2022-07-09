@@ -148,7 +148,6 @@ public class mainMenu extends javax.swing.JFrame {
         } else {
             decodedPeriod = AM;
         }
-        UserDTO user = new UserDTO();
         headingBanner.setText("Good " + decodedPeriod);
     }// GEN-LAST:event_headingBannerAncestorAdded
 
