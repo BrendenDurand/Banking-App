@@ -6,7 +6,10 @@
 package gui;
 
 import controller.UserController;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.User;
 import models.UserDTO;
 import services.SendEmail;

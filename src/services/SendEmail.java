@@ -1,12 +1,18 @@
 package services;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SendEmail {
 
-    final String senderEmail = "exorbitantbanking@gmail.com"; 
-    final String senderPassword = "wukynxtqmfxzkctz"; 
+    String senderEmail;
+    String senderPassword;
     final String emailSMTPserver = "smtp.gmail.com";
     final String emailServerPort = "465";
     String receiverEmail = null;
@@ -20,6 +26,18 @@ public class SendEmail {
         emailSubject = subject;
         //body
         emailBody = body;
+        FileReader reader;
+        Properties properties = null;
+        try {
+            reader = new FileReader("properties.properties");
+            properties = new Properties();
+            properties.load(reader);
+        } catch (IOException ex) {
+            Logger.getLogger(SendEmail.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        senderEmail = properties.getProperty("emailAddress");
+        senderPassword = properties.getProperty("emailPassword");
 
         Properties props = new Properties();
         props.put("mail.smtp.user", senderEmail);
@@ -53,5 +71,5 @@ public class SendEmail {
             return new PasswordAuthentication(senderEmail, senderPassword);
         }
     }
-    
+
 }
