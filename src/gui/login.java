@@ -6,11 +6,6 @@
 package gui;
 
 import controller.UserController;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import models.User;
 import models.UserDTO;
 import services.SendEmail;
 import services.createOTP;
@@ -211,8 +206,9 @@ public class login extends javax.swing.JFrame {
         String password = loginPassword.getText();
         UserDTO user = UserController.LoginUser(email, password);
         createOTP otp = new createOTP();
-        code = otp.createCode();
         
+        
+        code = otp.createCode();
 
         if (user == null) {
             this.hide();
@@ -220,7 +216,9 @@ public class login extends javax.swing.JFrame {
         } else {
             user.setOTP(code);
             SendEmail msg = new SendEmail(email, "Welcome back " + user.getName(), "Your OTP is: " + code);
-            new otpForm().setVisible(true);
+            otpForm form = new otpForm();
+            form.setVisible(true);
+            form.setUserDetails(user);
         }
     }// GEN-LAST:event_jButton2MouseClicked
 

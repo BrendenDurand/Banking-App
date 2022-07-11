@@ -8,16 +8,14 @@ package gui;
 import models.UserDTO;
 import services.createOTP;
 
-
 /**
  *
  * @author alexg
  */
 public class otpForm extends javax.swing.JFrame {
-    
-    /**
-     * Creates new form otpForm
-     */
+
+    UserDTO user;
+
     public otpForm() {
         initComponents();
     }
@@ -120,10 +118,16 @@ public class otpForm extends javax.swing.JFrame {
         createOTP create = new createOTP();
         String enteredOTP = otpText.getText();
         String expectedOTP = UserDTO.getOTP();
-        if (enteredOTP.equals(expectedOTP)){
-            new mainMenu().setVisible(true);
+        if (enteredOTP.equals(expectedOTP)) {
+            mainMenu mainMenu = new mainMenu();
+            mainMenu.setUserDetails(user);
+            mainMenu.setVisible(true);
         }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    public void setUserDetails(UserDTO user) {
+        this.user = user;
+    }
 
     /**
      * @param args the command line arguments
@@ -159,7 +163,7 @@ public class otpForm extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackPanel;
     private javax.swing.JButton jButton1;
