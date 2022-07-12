@@ -15,6 +15,7 @@ import services.createOTP;
 public class otpForm extends javax.swing.JFrame {
 
     UserDTO user;
+    login previous;
 
     public otpForm() {
         initComponents();
@@ -36,6 +37,7 @@ public class otpForm extends javax.swing.JFrame {
         otpText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         BackPanel.setBackground(new java.awt.Color(0, 0, 0));
         BackPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -107,6 +109,7 @@ public class otpForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -121,12 +124,18 @@ public class otpForm extends javax.swing.JFrame {
         if (enteredOTP.equals(expectedOTP)) {
             mainMenu mainMenu = new mainMenu();
             mainMenu.setUserDetails(user);
+            this.setVisible(false);
+            previous.setVisible(false);
             mainMenu.setVisible(true);
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
     public void setUserDetails(UserDTO user) {
         this.user = user;
+    }
+
+    public void setPrevious(login prev) {
+        this.previous = prev;
     }
 
     /**

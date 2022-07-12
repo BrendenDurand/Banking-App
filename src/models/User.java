@@ -1,5 +1,4 @@
 package models;
-
 public class User {
 
     private int id;
@@ -9,6 +8,7 @@ public class User {
     private String IDNumber;
     private String password;
     private int age;
+    private Double balance;
 
     public User() {
         
@@ -68,6 +68,14 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 
 }

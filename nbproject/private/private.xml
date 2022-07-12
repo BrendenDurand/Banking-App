@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/root/main.java</file>
-            <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/gui/otpForm.java</file>
+            <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/gui/register.java</file>
+            <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/services/generateBalance.java</file>
             <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/models/UserDTO.java</file>
             <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/services/SendEmail.java</file>
             <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/models/User.java</file>
             <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/database/backend.java</file>
-            <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/gui/login.java</file>
+            <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/controller/UserController.java</file>
             <file>file:/C:/Users/alexg/Desktop/Banking%20Program/Banking-App/src/gui/mainMenu.java</file>
         </group>
     </open-files>

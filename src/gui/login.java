@@ -18,6 +18,7 @@ public class login extends javax.swing.JFrame {
 
     String code;
 
+
     /**
      * Creates new form login
      */
@@ -218,10 +219,11 @@ public class login extends javax.swing.JFrame {
             SendEmail msg = new SendEmail(email, "Welcome back " + user.getName(), "Your OTP is: " + code);
             otpForm form = new otpForm();
             form.setVisible(true);
+            form.setPrevious(this);
             form.setUserDetails(user);
         }
     }// GEN-LAST:event_jButton2MouseClicked
-
+    
     private void loginPasswordActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_loginPasswordActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_loginPasswordActionPerformed

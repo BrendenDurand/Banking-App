@@ -31,6 +31,7 @@ public class mainMenu extends javax.swing.JFrame {
         headingBanner = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         BackPanel.setBackground(new java.awt.Color(0, 0, 0));
         BackPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -52,12 +53,12 @@ public class mainMenu extends javax.swing.JFrame {
             }
         });
         headingBanner.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 headingBannerAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -108,6 +109,7 @@ public class mainMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel3MouseClicked
@@ -140,7 +142,7 @@ public class mainMenu extends javax.swing.JFrame {
         } else {
             decodedPeriod = AM;
         }
-        headingBanner.setText("Good " + decodedPeriod + " " + userDetails.getName());
+        headingBanner.setText("Good " + decodedPeriod + " " + userDetails.getName() + ", your balance is " + userDetails.getBalance());
     }// GEN-LAST:event_headingBannerAncestorAdded
 
     /**

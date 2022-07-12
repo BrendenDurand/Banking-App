@@ -2,6 +2,7 @@ package database;
 
 import java.sql.*;
 import models.User;
+import services.generateBalance;
 
 public class backend {
 
@@ -11,6 +12,7 @@ public class backend {
     public static String dbUrl = "jdbc:mysql://127.0.0.1:3306/users";
     public static String user = "student";
     public static String pass = "student";
+    public static generateBalance generate = new generateBalance();
 
     public static void main(String[] args) {
     }
@@ -40,6 +42,11 @@ public class backend {
                 statement.setString(5, user.getIDNumber());
                 statement.setInt(6, user.getAge());
                 statement.executeUpdate();
+                statement = connection.prepareStatement(
+                        "INSERT INTO BALANCES(email, balance) VALUES (?,?)");
+                statement.setString(1, user.getEmail());
+                statement.setDouble(2, generate.createBalance());
+                statement.executeUpdate();
             }
         } catch (Exception exc) {
         }
@@ -48,24 +55,32 @@ public class backend {
     public static User GetUserByEmail(String email) throws SQLException {
         try {
             Connection connection = getConn();
-            PreparedStatement statement = connection.prepareStatement(
+            PreparedStatement userDetails = connection.prepareStatement(
                     "SELECT * FROM USERS WHERE email = ?");
-            statement.setString(1, email);
-            ResultSet rs = statement.executeQuery();
-            
-            if (rs.next()) {//Found user in database
+            userDetails.setString(1, email);
+            ResultSet userDetailsRs = userDetails.executeQuery();
+
+            if (userDetailsRs.next()) {//Found user in database
                 User user = new User();
-                user.setName(rs.getString("name"));
-                user.setSurname(rs.getString("surname"));
-                user.setPassword(rs.getString("password"));
-                user.setEmail(rs.getString("email"));
-                user.setIDNumber(rs.getString("IDNumber"));
-                user.setAge(rs.getInt("age"));
+                user.setName(userDetailsRs.getString("name"));
+                user.setSurname(userDetailsRs.getString("surname"));
+                user.setPassword(userDetailsRs.getString("password"));
+                user.setEmail(userDetailsRs.getString("email"));
+                user.setIDNumber(userDetailsRs.getString("IDNumber"));
+                user.setAge(userDetailsRs.getInt("age"));
+                
+                PreparedStatement balanceDetails = connection.prepareStatement(
+                        "SELECT * FROM BALANCES WHERE email = ?");
+                balanceDetails.setString(1, email);
+                ResultSet balancesRs = balanceDetails.executeQuery();
+                balancesRs.next();
+                user.setBalance(balancesRs.getDouble("balance"));
                 return user;
             } else {//No user found
                 return null;
             }
         } catch (Exception exc) {
+            System.out.println(exc);
             throw exc;
         }
 
