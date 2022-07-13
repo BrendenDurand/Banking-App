@@ -9,7 +9,6 @@ public class UserDTO {
     private String IDNumber;
     private int age;
     private static String otp;
-    private Double balance;
 
     public UserDTO() {
 
@@ -21,7 +20,6 @@ public class UserDTO {
         this.email = user.getEmail();
         this.IDNumber = user.getIDNumber();
         this.age = user.getAge();
-        this.balance = user.getBalance();
     }
 
     public String getName() {
@@ -72,11 +70,4 @@ public class UserDTO {
         this.age = age;
     }
 
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
 }

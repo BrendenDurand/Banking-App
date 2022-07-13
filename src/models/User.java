@@ -1,4 +1,7 @@
 package models;
+
+import java.util.ArrayList;
+
 public class User {
 
     private int id;
@@ -8,12 +11,12 @@ public class User {
     private String IDNumber;
     private String password;
     private int age;
-    private Double balance;
+    public ArrayList<Account> accounts;
 
     public User() {
-        
+
     }
-    
+
     public int getId() {
         return id;
     }
@@ -68,14 +71,6 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
     }
 
 }
