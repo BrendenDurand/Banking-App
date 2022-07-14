@@ -11,6 +11,7 @@ public class UserController {
         backend.RegisterNewUser(user);
     }
 
+    //good work on this method you did a great job its reaable, verbose and scalable
     public static UserDTO LoginUser(String email, String password) {
         // Get user from db
         try {
@@ -37,6 +38,7 @@ public class UserController {
 
     }
 
+    //change what password ? naming convention
     public static void changePassword(String email, String password) {
         backend.changePassword(email, password);
     }
