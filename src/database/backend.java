@@ -6,21 +6,21 @@ import models.Account;
 import models.User;
 import services.generateBalance;
 
-public class backend {
+public class backend//why is this called backend? what does backend mean ? it should be named appropriately {
 
     public static Statement myStmt;
     public static ResultSet myRs;
 
     public static String dbUrl = "jdbc:mysql://127.0.0.1:3306/users";
-    public static String user = "student";
-    public static String pass = "student";
+    public static String user = "student";//Create an object for these to be held in rather than in the code
+    public static String pass = "student";//Create an object for these to be held in rather than in the code
     public static generateBalance generate = new generateBalance();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {//delete this method
     }
 
     public static Connection getConn() throws SQLException {
-        Connection myConn;
+        Connection myConn;//myConn to what ? I suggest read the book called the clean code , code should be self documenting
         try {
             myConn = DriverManager.getConnection(dbUrl, user, pass);
             return myConn;
@@ -45,7 +45,7 @@ public class backend {
                 statement.setInt(6, user.getAge());
                 int result = statement.executeUpdate();
                 if (result == 0) {
-                    throw new SQLException();
+                    throw new SQLException();//we never throw exceptions on errors always give valid detailed responses 
                 }
 
                 ResultSet key = statement.getGeneratedKeys();
@@ -65,7 +65,7 @@ public class backend {
             }
         } catch (Exception exc) {
             System.out.println(exc);
-        }
+        }//you should close the connection to avoid memery leaks
     }
 
     public static User GetUserByEmail(String email) throws SQLException {
@@ -107,9 +107,10 @@ public class backend {
             System.out.println(exc);
             throw exc;
         }
-
+        //close the connection or else you will have leaks and every time you open a new one you will be creating a new connection pool on the DB 
     }
 
+    //your method name is not clear to what the method does, change whawt password ? the user password, email password, DB password ? login password ? 
     public static void changePassword(String email, String password) {
         try {
             Connection connection = getConn();
