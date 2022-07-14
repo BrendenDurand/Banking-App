@@ -1,7 +1,8 @@
 package models;
 
 import java.util.ArrayList;
-
+//look at lombok as a dependancy it will help alot 
+//Again for scalability inheritance is needed, what type of user is this, 
 public class User {
 
     private int id;
@@ -11,7 +12,7 @@ public class User {
     private String IDNumber;
     private String password;
     private int age;
-    public ArrayList<Account> accounts;
+    public ArrayList<Account> accounts;//good work on this one but look at using a LIST not an arrayList.
 
     public User() {
 
