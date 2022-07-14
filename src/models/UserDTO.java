@@ -1,6 +1,7 @@
 package models;
 
-
+//lombok again 
+//This user DTo class has simialr fields to the USER class, if you were inheriting the fields from a generic Object you wouldnt need to rewrite the fields every time
 public class UserDTO {
 
     private String name;
